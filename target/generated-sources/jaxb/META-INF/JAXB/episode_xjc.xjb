@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2021.09.13 a las 05:01:27 PM COT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
+    <schemaBindings map="false">
+      <package name="com.gdr.gs_ws"/>
+    </schemaBindings>
+    <bindings scd="tns:getPaymentRequest">
+      <class ref="com.gdr.gs_ws.GetPaymentRequest"/>
+    </bindings>
+    <bindings scd="tns:getPaymentResponse">
+      <class ref="com.gdr.gs_ws.GetPaymentResponse"/>
+    </bindings>
+    <bindings scd="~tns:payment">
+      <class ref="com.gdr.gs_ws.Payment"/>
+    </bindings>
+    <bindings scd="~tns:idPersona">
+      <typesafeEnumClass ref="com.gdr.gs_ws.IdPersona"/>
+    </bindings>
+  </bindings>
+</bindings>
+

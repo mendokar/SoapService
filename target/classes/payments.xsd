@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getPaymentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="refPago" type="xs:string"/>
+				<xs:element name="fechaPago" type="xs:string"/>
+				<xs:element name="valorPago" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="payment" type="tns:payment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="payment">
+        <xs:sequence>
+            <xs:element name="respuestaCodigo" type="tns:respuestaCodigo"/>
+            <xs:element name="respuestaMensaje" type="xs:string"/>
+            <xs:element name="codConcepto" type="xs:string"/>
+			<xs:element name="pagoEsperado" type="xs:string"/>
+			<xs:element name="identificacionPersona" type="xs:string"/>
+			<xs:element name="idPersona" type="tns:idPersona"/>
+			<xs:element name="razonSocial" type="xs:string"/>
+			<xs:element name="primerNombre" type="xs:string"/>
+			<xs:element name="segundoNombre" type="xs:string"/>
+			<xs:element name="primerApellido" type="xs:string"/>
+			<xs:element name="segundoApellido" type="xs:string"/>
+			<xs:element name="direccionContacto" type="xs:string"/>
+			<xs:element name="nomPais" type="xs:string"/>
+			<xs:element name="nomDepartamento" type="xs:string"/>
+			<xs:element name="nomMunicipio" type="xs:string"/>      
+			<xs:element name="numTelefonoContacto" type="xs:string"/>   
+			<xs:element name="numCelularContacto" type="xs:string"/>   
+			<xs:element name="correoElectronicoContacto" type="xs:string"/>   
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="respuestaCodigo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="000"/>
+            <xs:enumeration value="001"/>
+            <xs:enumeration value="002"/>
+			<xs:enumeration value="003"/>
+			<xs:enumeration value="004"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+	
+	<xs:simpleType name="idPersona">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CC"/>
+            <xs:enumeration value="CD"/>
+            <xs:enumeration value="CE"/>
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="PEP"/>
+			<xs:enumeration value="NUIP"/>
+			<xs:enumeration value="TI"/>
+			<xs:enumeration value="NIT"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
