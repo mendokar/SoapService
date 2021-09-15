@@ -1,5 +1,9 @@
 package com.gdr.endpoint;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gdr.dao.PaymentDao;
+import com.gdr.gs_ws.Payment;
+import com.gdr.repository.IPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -10,23 +14,26 @@ import com.gdr.gs_ws.GetPaymentRequest;
 import com.gdr.gs_ws.GetPaymentResponse;
 import com.gdr.repository.PaymentRepository;
 
+import java.util.Optional;
+
 @Endpoint
 public class PaymentEndpoint {
 	private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-	private PaymentRepository paymentRepository;
+	private IPaymentRepository paymentRepository;
 
+	private ObjectMapper objectMapper;
 	@Autowired
 	public PaymentEndpoint(PaymentRepository paymentRepository) {
-		this.paymentRepository = paymentRepository;
+		paymentRepository = paymentRepository;
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPaymentRequest")
 	@ResponsePayload
 	public GetPaymentResponse getPayment(@RequestPayload GetPaymentRequest request) {		
 		GetPaymentResponse response = new GetPaymentResponse();
-		response.setPayment(paymentRepository.findPayment(request.getRefPago()));
-
+		PaymentDao paymentDao = paymentRepository.findPayment(request.getRefPago());
+		response.setPayment(objectMapper.convertValue(paymentDao, Payment.class));
 		return response;
 	}
 }

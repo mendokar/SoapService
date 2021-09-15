@@ -17,7 +17,7 @@ public class PaymentRepository {
 	@PostConstruct
 	public void initData() {
 		Payment payment = new Payment();
-		payment.setRespuestaCodigo("00");
+		payment.setRespuestaCodigo("1");
 		payment.setRespuestaMensaje("test");
 		payment.setCodConcepto("setCodConcepto");
 		payment.setPagoEsperado("setPagoEsperado");
