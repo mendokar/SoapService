@@ -1,0 +1,6 @@
+com\gdr\gs_ws\ObjectFactory.class
+com\gdr\gs_ws\GetPaymentResponse.class
+com\gdr\gs_ws\GetPaymentRequest.class
+com\gdr\gs_ws\IdPersona.class
+com\gdr\gs_ws\package-info.class
+com\gdr\gs_ws\Payment.class
