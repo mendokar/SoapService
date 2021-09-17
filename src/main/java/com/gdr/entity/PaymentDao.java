@@ -1,17 +1,14 @@
-package com.gdr.dao;
+package com.gdr.entity;
 
-
-import com.gdr.gs_ws.IdPersona;
-
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "payment")
 public class PaymentDao {
-    @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private String respuestaCodigo;
     private String respuestaMensaje;
     private String codConcepto;
@@ -32,6 +29,32 @@ public class PaymentDao {
     private String correoElectronicoContacto;
 
     public PaymentDao() {
+    }
+
+    public PaymentDao(String respuestaCodigo, String respuestaMensaje, String codConcepto,
+                      String pagoEsperado, String identificacionPersona, String idPersona,
+                      String razonSocial, String primerNombre, String segundoNombre,
+                      String primerApellido, String segundoApellido, String direccionContacto,
+                      String nomPais, String nomDepartamento, String nomMunicipio,
+                      String numTelefonoContacto, String numCelularContacto, String correoElectronicoContacto) {
+        this.respuestaCodigo = respuestaCodigo;
+        this.respuestaMensaje = respuestaMensaje;
+        this.codConcepto = codConcepto;
+        this.pagoEsperado = pagoEsperado;
+        this.identificacionPersona = identificacionPersona;
+        this.idPersona = idPersona;
+        this.razonSocial = razonSocial;
+        this.primerNombre = primerNombre;
+        this.segundoNombre = segundoNombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.direccionContacto = direccionContacto;
+        this.nomPais = nomPais;
+        this.nomDepartamento = nomDepartamento;
+        this.nomMunicipio = nomMunicipio;
+        this.numTelefonoContacto = numTelefonoContacto;
+        this.numCelularContacto = numCelularContacto;
+        this.correoElectronicoContacto = correoElectronicoContacto;
     }
 
     public String getRespuestaCodigo() {
